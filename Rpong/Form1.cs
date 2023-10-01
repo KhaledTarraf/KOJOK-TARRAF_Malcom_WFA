@@ -21,7 +21,6 @@ namespace Rpong
         int cpuScore = 0;
         //Size Variables
         int bottomBoundary;
-        int centerPoint;
         int xMidPoint;
         int yMidPoint;
         //Detection Variables
