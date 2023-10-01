@@ -70,7 +70,7 @@ namespace Rpong
             }
 
             //CPU move better
-            if (playerScore > 8)
+            if (playerScore > 8 && cpuControlsEnabled)
             {
                 int newTop = pongBall.Top - (cpuPlayer.Height / 2);
 
