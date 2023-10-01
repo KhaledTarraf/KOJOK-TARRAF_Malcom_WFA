@@ -38,6 +38,11 @@
             this.playerScoreLabel = new System.Windows.Forms.Label();
             this.cpuScoreLabel = new System.Windows.Forms.Label();
             this.pongTimer = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.player1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cpuPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pongBall)).BeginInit();
@@ -127,6 +132,66 @@
             this.pongTimer.Interval = 30;
             this.pongTimer.Tick += new System.EventHandler(this.pongTimer_Tick);
             // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Perpetua Titling MT", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(961, -16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(210, 60);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Press \"M\" to switch to solo or multiplayer mode";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Perpetua Titling MT", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(-2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(210, 29);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Press \"C\" to change style";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Perpetua Titling MT", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(-2, 29);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(246, 29);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Press \"Space\" to pause the game";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Perpetua Titling MT", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(484, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(210, 29);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Press \"Escape\" to quit";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Perpetua Titling MT", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(961, 52);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(210, 29);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Press \"R\" to restart the game";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // R6pong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -141,6 +206,11 @@
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.cpuScoreLabel);
             this.Controls.Add(this.playerScoreLabel);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label5);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(1190, 751);
@@ -168,6 +238,11 @@
         public System.Windows.Forms.PictureBox player1;
         public System.Windows.Forms.PictureBox pongBall;
         public System.Windows.Forms.Timer pongTimer;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }
 

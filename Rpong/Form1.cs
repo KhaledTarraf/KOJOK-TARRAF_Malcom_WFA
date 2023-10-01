@@ -27,6 +27,9 @@ namespace Rpong
         //Detection Variables
         bool playerIsUp;
         bool playerIsDown;
+        bool player2IsUp;
+        bool player2IsDown;
+        bool cpuControlsEnabled = true;
         bool hasCollided;
         //Spécial Keys
         int spaceBarClicked = 0;
@@ -56,7 +59,16 @@ namespace Rpong
             pongBall.Left -= ballXCoordinate;
 
             //Make CPU move
-            cpuPlayer.Top -= cpuDirection;
+            if (cpuControlsEnabled)
+            {
+                cpuPlayer.Top -= cpuDirection;
+            }
+            else
+            {
+                //CPU controlled manualy
+                if (player2IsUp == true && cpuPlayer.Top > 0) { cpuPlayer.Top -= 10; }
+                if (player2IsDown == true && cpuPlayer.Top < bottomBoundary) { cpuPlayer.Top += 10; }
+            }
 
             //CPU move better
             if (playerScore > 8)
@@ -71,18 +83,6 @@ namespace Rpong
 
                 cpuPlayer.Top = newTop;
             }
-            /*else
-            {
-                int newTop = pongBall.Top - (cpuPlayer.Height / 2) + 132;
-
-                //Make sure that the paddle does not go out from the top
-                newTop = Math.Max(newTop, 0);
-
-                //Make sure that the paddle does not go out from the bottom 
-                newTop = Math.Min(newTop, this.ClientSize.Height - cpuPlayer.Height);
-
-                cpuPlayer.Top = newTop;
-            }*/
 
             //Check if cpu has reached top or bottom
             if (cpuPlayer.Top < 0 || cpuPlayer.Top > bottomBoundary ) { cpuDirection = -cpuDirection; }
@@ -120,7 +120,7 @@ namespace Rpong
                     //Send the ball in opposite direction
                     ballXCoordinate = -ballXCoordinate;
 
-                    //Mark the ball as "haas collided"
+                    //Mark the ball as "has collided"
                     hasCollided = true;
                 }
             }
@@ -131,9 +131,9 @@ namespace Rpong
             }
 
             //Move player Up
-            if (playerIsUp == true && player1.Top > 0) { player1.Top -= 20;}
+            if (playerIsUp == true && player1.Top > 0) { player1.Top -= 10;}
             //Move player Down
-            if (playerIsDown == true && player1.Top < bottomBoundary) { player1.Top += 20; }
+            if (playerIsDown == true && player1.Top < bottomBoundary) { player1.Top += 10;}
 
             //Check for winner
             if (playerScore >= 10 || cpuScore >= 10)
@@ -145,17 +145,29 @@ namespace Rpong
         private void R6pong_KeyUp(object sender, KeyEventArgs e)
         {
             //If up arrow is pressed, move paddle upwards
-            if (e.KeyCode == Keys.Up) { playerIsUp = false; }
+            if (e.KeyCode == Keys.Z) { playerIsUp = false; }
             //If down arrow is pressed, move paddle downwards
-            if (e.KeyCode == Keys.Down) { playerIsDown = false; }
+            if (e.KeyCode == Keys.S) { playerIsDown = false; }
+
+            if (e.KeyCode == Keys.Up) { player2IsUp = false; }
+            if (e.KeyCode == Keys.Down) { player2IsDown = false; }
         }
 
         private void R6pong_KeyDown(object sender, KeyEventArgs e)
         {
             //If up arrow is pressed, move paddle upwards
-            if (e.KeyCode == Keys.Up) { playerIsUp = true; }
+            if (e.KeyCode == Keys.Z) { playerIsUp = true; }
             //If down arrow is pressed, move paddle downwards
-            if (e.KeyCode == Keys.Down) { playerIsDown = true; }
+            if (e.KeyCode == Keys.S) { playerIsDown = true; }
+
+            if (e.KeyCode == Keys.Up && !cpuControlsEnabled) { player2IsUp = true; }
+            if (e.KeyCode == Keys.Down && !cpuControlsEnabled) { player2IsDown = true; }
+
+            //Switch between solo or multiplayer
+            if (e.KeyCode == Keys.M)
+            {
+                cpuControlsEnabled = !cpuControlsEnabled;
+            }
 
             //If player press C key, open the Change Style window
             if (e.KeyCode == Keys.C)
